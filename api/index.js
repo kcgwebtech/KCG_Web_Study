@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
-const port = 8888;
+const express = require('express'); // 모듈을 불러오는 구문
+const app = express(); // express 생성
+const port = 8888; // 서버를 열 때 사용되는 포트 정보
 
-app.get('/hi', (req, res) =>{
-    res.send('he is motherfucker');
-})
+app.use(express.json());
 
-app.listen(port);
+app.use('/auth', require('./auth'));
+
+app.listen(port); // port로 서버 열기
 console.log('start server with 8888!');
